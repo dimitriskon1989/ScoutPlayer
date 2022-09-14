@@ -1,0 +1,21 @@
+.background-register {
+  background-color: #2bbcaf;
+}
+
+
+.p-inputgroup input {
+  border-radius: 0px 6px 6px 0px;
+}
+
+.p-inputtext:enabled:focus {
+  border: 1px solid #2bbcaf;
+  box-shadow: none !important;
+}
+
+.p-inputtext:enabled:hover {
+  border: 1px solid #2bbcaf;
+  box-shadow: none !important;
+}
+a {
+  cursor: pointer;
+}

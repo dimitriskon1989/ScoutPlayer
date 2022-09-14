@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar">
+  <div>
+    <img
+      src="../../../assets/photo/ScoutPlayer-Logo(1).png"
+      width="100px"
+      alt=""
+    />
+  </div>
+  <div>
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <i class="fa-solid fa-circle-user fa-xl"></i> {{ email }}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<div class="container">profile works</div>

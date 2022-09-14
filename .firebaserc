@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "scoutplayer-8b765": {
+      "hosting": {
+        "frontend": [
+          "scoutplayer-8b765"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "scoutplayer-8b765"
+  }
+}

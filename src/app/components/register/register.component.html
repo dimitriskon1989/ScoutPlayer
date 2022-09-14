@@ -1,0 +1,135 @@
+<div
+  class="container-fluid vh-100 d-flex justify-content-center align-items-center background-register"
+>
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-12 text-center mb-4 p-0">
+      <img
+        src="../../../assets/photo/ScoutPlayer-Logo(1).png"
+        width="150px"
+        alt=""
+        class="mb-2"
+      />
+    </div>
+    <div class="col-12 col-sm-10">
+      <div class="card shadow border-0">
+        <div class="card-body p-0">
+          <!-- Register Box-->
+          <div class="col-12 px-3 px-sm-5 py-4">
+            <h3 class="text-center" style="color: #2bbcaf; font-weight: bold">
+              Εγγραφή
+            </h3>
+            <form [formGroup]="registerForm">
+              <div class="grid">
+                <div class="col-12 p-1">
+                  <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"
+                      ><i class="pi pi-envelope"></i
+                    ></span>
+                    <input
+                      type="email"
+                      pInputText
+                      placeholder="Email"
+                      formControlName="email"
+                      class="p-inputtext px-2"
+                    />
+                  </div>
+                  <p
+                    class="text-danger m-0 py-1"
+                    *ngIf="email?.errors?.required && email?.touched"
+                  >
+                    * Το Email είναι υποχρεωτικό
+                  </p>
+                  <p class="text-danger m-0 py-1" *ngIf="email?.errors?.email">
+                    * Παρακαλώ εισάγετε ενα σωστό email
+                  </p>
+                </div>
+
+                <div class="col-12 p-1">
+                  <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"
+                      ><i class="pi pi-unlock"></i
+                    ></span>
+                    <input
+                      type="password"
+                      pInputText
+                      placeholder="Κωδικός"
+                      formControlName="password"
+                      class="p-inputtext px-2"
+                    />
+                  </div>
+                  <p
+                    class="text-danger m-0 py-1"
+                    *ngIf="password?.errors?.required && password?.touched"
+                  >
+                    * Ο Κωδικός είναι υποχρεωτικός
+                  </p>
+                  <p
+                    class="text-danger m-0 py-1"
+                    *ngIf="password?.errors?.minlength"
+                  >
+                    * Ο Κωδικός πρέπει να είναι πάνω από 6 χαρακτήρες
+                  </p>
+                </div>
+                <div class="col-12 p-1">
+                  <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"
+                      ><i class="pi pi-unlock"></i
+                    ></span>
+                    <input
+                      type="password"
+                      pInputText
+                      placeholder="Επιβεβαίωση Κωδικού"
+                      formControlName="confirmPassword"
+                      class="p-inputtext px-2"
+                    />
+                  </div>
+                </div>
+                <p
+                  class="text-danger m-0 py-1"
+                  *ngIf="registerForm.errors?.['passwordsDontMatch']"
+                >
+                  * Οι Κωδικοί δεν ταιριάζουν
+                </p>
+              </div>
+              <div class="col-12 text-center mt-3">
+                <button
+                  [disabled]="registerForm.invalid"
+                  style="background-color: #2bbcaf; color: white"
+                  type="submit"
+                  class="btn form-control"
+                  (click)="createUser()"
+                >
+                  Εγγραφή
+                </button>
+              </div>
+
+              <div class="col-12 mt-3">
+                <p class="text-center mb-0">
+                  Έχετε ήδη λογαριασμό?
+                  <a
+                    routerLink="/login"
+                    class="text-decoration-none"
+                    style="color: #2bbcaf; font-weight: bold"
+                    >Σύνδεση</a
+                  >
+                </p>
+              </div>
+              <div class="col-12 mt-2">
+                <p class="text-center text-dark text-muted">
+                  <span class="text-danger">*</span> Με την εγγραφή σας
+                  αποδέχεστε τους
+                  <a
+                    href="#"
+                    class="text-decoration-none"
+                    style="color: #2bbcaf; font-weight: bold"
+                    >Όρους Χρήσης
+                  </a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
