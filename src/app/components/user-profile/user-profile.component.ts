@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  email: string = 'Giannis'
+  email: string = 'User'
 
   constructor(private authservice: AuthService,
               private afAuth: AngularFireAuth,

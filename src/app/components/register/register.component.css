@@ -19,3 +19,11 @@
 a {
   cursor: pointer;
 }
+p #football-player-videos {
+  color: #2bbcaf;
+  font-weight: bold;
+}
+p #football-player-videos:hover {
+  color: #198a80;
+  font-weight: bold;
+}

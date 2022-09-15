@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     }
     const { email, password } = this.loginForm.value;
     this.authService.signIn(email, password).then(() => this.router.navigate(['userProfile']));
+    alert('Logged in successfully!')
   }
 
   // getters for Validation Login Form

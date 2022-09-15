@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
     this.authservice.registerUser(email, password).then(user => {
       this.router.navigate(['/login']);
     })
+    alert('Registered successfully!')
   }
 
   // getters for Validation Register Form
