@@ -2,7 +2,6 @@
   background-color: #2bbcaf;
 }
 
-
 .p-inputgroup input {
   border-radius: 0px 6px 6px 0px;
 }
@@ -19,11 +18,7 @@
 a {
   cursor: pointer;
 }
-p #football-player-videos {
-  color: #2bbcaf;
-  font-weight: bold;
-}
-p #football-player-videos:hover {
-  color: #198a80;
-  font-weight: bold;
+
+.register-form {
+  width: 500px;
 }

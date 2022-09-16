@@ -10,10 +10,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PricingComponent } from 'src/app/components/pricing/pricing.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -55,14 +60,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // PrimeNg
-import {PasswordModule} from 'primeng/password';
+import { PasswordModule } from 'primeng/password';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
 import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
@@ -72,7 +76,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     RegisterComponent,
     LandingComponent,
     UserProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,
@@ -109,6 +114,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     MenubarModule,
     InputTextModule,
     ButtonModule,
+    ToggleButtonModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

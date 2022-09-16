@@ -1,0 +1,22 @@
+.background-pricing {
+  background-color: #2bbcaf;
+}
+
+p #football-player-videos {
+  color: #2bbcaf;
+  font-weight: bold;
+}
+
+p #football-player-videos:hover {
+  color: #17988d;
+  font-weight: bold;
+}
+
+#btn-register {
+  background-color: #ff6d2a;
+  width: 150px;
+}
+
+#btn-register:hover {
+  background-color: #e76326;
+}

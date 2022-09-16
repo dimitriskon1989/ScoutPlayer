@@ -1,4 +1,4 @@
-<!-- <div
+<div
   class="container-fluid vh-100 d-flex justify-content-center align-items-center background-register"
 >
   <div class="row d-flex justify-content-center align-items-center">
@@ -14,9 +14,38 @@
       <div class="card shadow border-0">
         <div class="card-body p-0">
           <div class="col-12 px-3 px-sm-5 py-4">
-            <h3 class="text-center" style="color: #2bbcaf; font-weight: bold">
+            <h2 class="text-center" style="color: #2bbcaf; font-weight: bold">
               Εγγραφή
-            </h3>
+            </h2>
+            <div class="grid d-flex justify-content-between mb-3">
+              <div class="col-4 text-start">
+                <p-toggleButton
+                  class="memberButton"
+                  onLabel="Ποδοσφαιριστής"
+                  offLabel="Ποδοσφαιριστής"
+                  [(ngModel)]="isPlayer"
+                  (onChange)="onPlayerChange($event)"
+                ></p-toggleButton>
+              </div>
+              <div class="col-4 text-end">
+                <p-toggleButton
+                  class="memberButton"
+                  onLabel="Προπονητής"
+                  offLabel="Προπονητής"
+                  [(ngModel)]="isPlayer"
+                  (onChange)="onPlayerChange($event)"
+                ></p-toggleButton>
+              </div>
+              <div class="col-4 text-end">
+                <p-toggleButton
+                  class="memberButton"
+                  onLabel="Εκπρόσωπος"
+                  offLabel="Εκπρόσωπος"
+                  [(ngModel)]="isPlayer"
+                  (onChange)="onPlayerChange($event)"
+                ></p-toggleButton>
+              </div>
+            </div>
             <form [formGroup]="registerForm">
               <div class="grid">
                 <div class="col-12 p-1">
@@ -104,12 +133,23 @@
 
               <div class="col-12 mt-3">
                 <p class="text-center mb-0">
-                  Έχετε ήδη λογαριασμό?
+                  Έχεις ήδη λογαριασμό?
                   <a
                     routerLink="/login"
                     class="text-decoration-none"
                     style="color: #2bbcaf; font-weight: bold"
                     >Σύνδεση</a
+                  >
+                </p>
+              </div>
+              <div class="col-12 mt-2">
+                <p class="text-center mb-0">
+                  Δες όλα τα πακέτα εγγραφής
+                  <a
+                    routerLink="/pricing"
+                    class="text-decoration-none"
+                    style="color: #2bbcaf; font-weight: bold"
+                    >Εδώ</a
                   >
                 </p>
               </div>
@@ -131,144 +171,148 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
+
 <div
   class="container-fluid vh-100 d-flex justify-content-around align-items-center background-register px-5"
 >
   <div class="row d-flex align-items-center px-5">
-    <div class="col-12 text-center m-0 p-0">
-      <img
-        src="../../../assets/photo/ScoutPlayer-Logo(1).png"
-        width="150px"
-        alt=""
-        class="mb-2"
-      />
-    </div>
-    <div class="col-4 pb-5 pt-4 px-3">
-      <div class="card shadow border-0 p-4">
-        <div class="card-body p-0">
-          <img
-            src="../../../assets/photo/football-player.png"
-            width="100px"
-            alt=""
-            class="mb-3"
-          />
-          <h2 class="" style="color: #2bbcaf; font-weight: bold">
-            ΠΟΔΟΣΦΑΙΡΙΣΤΗΣ
-          </h2>
-          <p style="font-size: 13px">
-            Γίνε μέλος και εσύ στην μεγαλύτερη πλατφόρμα ποδοσφαιριστών στην
-            Ελλάδα
-          </p>
-          <hr />
-          <h1 style="color: #2bbcaf; font-size: 40px; font-weight: bold">
-            20€
-            <span style="color: #000; font-size: 14px; font-weight: bold"
-              >/ ΧΡΟΝΟ</span
+    <div class="col-12 p-0 register-form">
+      <div class="grid d-flex justify-content-between mb-3">
+        <div class="col-4 text-start">
+          <p-toggleButton
+            class="memberButton"
+            onLabel="Ποδοσφαιριστής"
+            offLabel="Ποδοσφαιριστής"
+            [(ngModel)]="isPlayer"
+            (onChange)="onPlayerChange($event)"
+          ></p-toggleButton>
+        </div>
+        <div class="col-4 text-end">
+          <p-toggleButton
+            class="memberButton"
+            onLabel="Προπονητής"
+            offLabel="Προπονητής"
+            [(ngModel)]="isPlayer"
+            (onChange)="onPlayerChange($event)"
+          ></p-toggleButton>
+        </div>
+        <div class="col-4 text-end">
+          <p-toggleButton
+            class="memberButton"
+            onLabel="Εκπρόσωπος"
+            offLabel="Εκπρόσωπος"
+            [(ngModel)]="isPlayer"
+            (onChange)="onPlayerChange($event)"
+          ></p-toggleButton>
+        </div>
+      </div>
+      <form [formGroup]="registerForm">
+        <div class="grid">
+          <div class="col-12 py-1">
+            <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"
+                ><i class="pi pi-envelope"></i
+              ></span>
+              <input
+                type="email"
+                pInputText
+                placeholder="Email"
+                formControlName="email"
+                class="p-inputtext px-2"
+              />
+            </div>
+            <p
+              class="text-danger m-0 py-1"
+              *ngIf="email?.errors?.required && email?.touched"
             >
-          </h1>
-          <p class="mb-4">
-            Κέρδισε προνομιακή
-            <span style="font-weight: bold">έκπτωση 20%</span> στο 1ο σου
+              * Το Email είναι υποχρεωτικό
+            </p>
+            <p class="text-danger m-0 py-1" *ngIf="email?.errors?.email">
+              * Παρακαλώ εισάγετε ενα σωστό email
+            </p>
+          </div>
+
+          <div class="col-12 py-1">
+            <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"
+                ><i class="pi pi-unlock"></i
+              ></span>
+              <input
+                type="password"
+                pInputText
+                placeholder="Κωδικός"
+                formControlName="password"
+                class="p-inputtext px-2"
+              />
+            </div>
+            <p
+              class="text-danger m-0 py-1"
+              *ngIf="password?.errors?.required && password?.touched"
+            >
+              * Ο Κωδικός είναι υποχρεωτικός
+            </p>
+            <p class="text-danger m-0 py-1" *ngIf="password?.errors?.minlength">
+              * Ο Κωδικός πρέπει να είναι πάνω από 6 χαρακτήρες
+            </p>
+          </div>
+          <div class="col-12 py-1">
+            <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"
+                ><i class="pi pi-unlock"></i
+              ></span>
+              <input
+                type="password"
+                pInputText
+                placeholder="Επιβεβαίωση Κωδικού"
+                formControlName="confirmPassword"
+                class="p-inputtext px-2"
+              />
+            </div>
+          </div>
+          <p
+            class="text-danger m-0 py-1"
+            *ngIf="registerForm.errors?.['passwordsDontMatch']"
+          >
+            * Οι Κωδικοί δεν ταιριάζουν
+          </p>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <button
+            [disabled]="registerForm.invalid"
+            style="background-color: #2bbcaf; color: white"
+            type="submit"
+            class="btn form-control"
+            (click)="createUser()"
+          >
+            Εγγραφή
+          </button>
+        </div>
+
+        <div class="col-12 mt-3">
+          <p class="text-center mb-0">
+            Έχετε ήδη λογαριασμό?
             <a
-              href="https://footballplayervideos.gr"
+              routerLink="/login"
               class="text-decoration-none"
-              id="football-player-videos"
-              target="_blank"
-              >video-highlights</a
+              style="color: #2bbcaf; font-weight: bold"
+              >Σύνδεση</a
             >
-            με την εγγραφή σου στην πλατφόρμα.
           </p>
-          <button
-            class="form-control text-white"
-            style="background-color: #2bbcaf"
-          >
-            Ξεκίνα εδώ
-          </button>
         </div>
-      </div>
-    </div>
-    <div class="col-4 pb-5 pt-4 px-3">
-      <div class="card shadow border-0 p-4">
-        <div class="card-body p-0">
-          <img
-            src="../../../assets/photo/coach.png"
-            width="100px"
-            alt=""
-            class="mb-3"
-          />
-          <h2 style="color: #2bbcaf; font-weight: bold">ΠΡΟΠΟΝΗΤΗΣ</h2>
-          <p style="font-size: 13px">
-            Γίνε μέλος στην πλατφόρμα και αναζήτησε τον ποδοσφαιριστή που σου
-            ταιριάζει.
+        <div class="col-12 mt-2">
+          <p class="text-center text-dark text-muted">
+            <span class="text-danger">*</span> Με την εγγραφή σας αποδέχεστε
+            τους
+            <a
+              href="#"
+              class="text-decoration-none"
+              style="color: #2bbcaf; font-weight: bold"
+              >Όρους Χρήσης
+            </a>
           </p>
-          <hr />
-          <h1 style="color: #2bbcaf; font-size: 40px; font-weight: bold">
-            40€
-            <span style="color: #000; font-size: 14px; font-weight: bold"
-              >/ ΧΡΟΝΟ</span
-            >
-          </h1>
-          <p class="mb-4">
-            Κέρδισε
-            <span style="font-weight: bold">έκπτωση 10€ (promo code)</span> εάν
-            προτείνεις την πλατφόρμα και σε άλλους για να εγγραφούν.
-          </p>
-          <button
-            class="form-control text-white"
-            style="background-color: #ff6d2a"
-          >
-            Ξεκίνα εδώ
-          </button>
         </div>
-      </div>
-    </div>
-    <div class="col-4 pb-5 pt-4 px-3">
-      <div class="card shadow border-0 p-4">
-        <div class="card-body p-0">
-          <img
-            src="../../../assets/photo/agent.png"
-            width="100px"
-            alt=""
-            class="mb-3"
-          />
-          <h2 style="color: #2bbcaf; font-weight: bold">
-            ΕΚΠΡΟΣΩΠΟΣ ΠΟΔΟΣΦΑIΡΙΣΤΩΝ
-          </h2>
-          <p style="font-size: 13px">
-            Γίνε μέλος και εσύ στην μεγαλύτερη πλατφόρμα μάνατζερ στην Ελλάδα
-          </p>
-          <hr />
-          <h1 style="color: #2bbcaf; font-size: 40px; font-weight: bold">
-            40€
-            <span style="color: #000; font-size: 14px; font-weight: bold"
-              >/ ΧΡΟΝΟ</span
-            >
-          </h1>
-          <p class="mb-4">
-            Κέρδισε <span style="font-weight: bold">έκπτωση 10€</span> εάν
-            φέρεις 10 ποδοσφαιριστές και εγγραφούν στην πλατφόρμα.
-          </p>
-          <button
-            class="form-control text-white"
-            style="background-color: #474f85"
-          >
-            Ξεκίνα εδώ
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-12">
-      <p class="text-center text-dark">
-        Έχεις ήδη λογαριασμό?
-        <a
-          routerLink="/login"
-          class="text-decoration-none px-1"
-          style="color: #fff; font-weight: bold"
-        >
-          Σύνδεση
-        </a>
-      </p>
+      </form>
     </div>
   </div>
 </div>

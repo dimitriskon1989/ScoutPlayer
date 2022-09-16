@@ -25,6 +25,10 @@ export function passwordMatchValidator(): ValidatorFn {
 })
 export class RegisterComponent implements OnInit {
 
+  isPlayer: boolean = false;
+  isCoach: boolean = false;
+  isAgent: boolean = false;
+
   registerForm: FormGroup | any;
 
   constructor(private authservice: AuthService,
@@ -68,6 +72,18 @@ export class RegisterComponent implements OnInit {
   }
   get confirmPassword() {
     return this.registerForm.get('confirmPassword');
+  }
+
+  onPlayerChange(event: any) {
+    this.isPlayer = !event.checked;
+  }
+
+  onCoachChange(event: any) {
+    this.isCoach = !event.checked;
+  }
+
+  onAgentChange(event: any) {
+    this.isAgent = !event.checked;
   }
 
 }
