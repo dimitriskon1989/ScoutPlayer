@@ -5,4 +5,11 @@ export interface User {
   created_at: Date;
   updated_at: Date;
   verified: boolean;
+  type: UserType
+}
+
+export enum UserType {
+  PLAYER_USER = 'player',
+  COACH_USER = 'coach',
+  AGENT_USER = 'agent',
 }

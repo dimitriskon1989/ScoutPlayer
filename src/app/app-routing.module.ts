@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from 'src/app/components/login/login.component';
-import { RegisterComponent } from 'src/app/components/register/register.component';
+import { LoginComponent } from 'src/app/authentication/login/login.component';
+import { RegisterComponent } from 'src/app/authentication/register/register.component';
 import { PricingComponent } from 'src/app/components/pricing/pricing.component';
 import { LandingComponent } from 'src/app/components/landing/landing.component';
-import { UserProfileComponent } from 'src/app/components/user-profile/user-profile.component';
+import {NotfoundComponent} from "./shared/components/notfound/notfound.component";
+
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'pricing', component: PricingComponent },
-  { path: 'userProfile', component: UserProfileComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin} },
+  { path: 'user-page', loadChildren: () => import('./user-page/user-profile.module').then(m => m.UserProfileModule)},
+  {path: '**', component: NotfoundComponent}
+
 ];
 
 @NgModule({
