@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // PrimeNg
@@ -11,6 +11,9 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 @NgModule({
   declarations: [],
   imports: [
+    CommonModule
+  ],
+  exports: [
     CommonModule,
     PasswordModule,
     MenubarModule,

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Material Form Controls
@@ -38,6 +38,9 @@ import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [],
   imports: [
+    CommonModule
+  ],
+  exports: [
     CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,

@@ -1,8 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+
+import { MaterialModule } from './material.module';
+import { PrimengModule } from './primeng.module';
 
 // Firebase modules
 import { AngularFireModule } from '@angular/fire/compat';
@@ -45,6 +48,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MaterialModule,
+    PrimengModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,

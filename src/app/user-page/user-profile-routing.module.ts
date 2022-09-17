@@ -20,11 +20,6 @@ const routes: Routes = [
       { path: 'settings', component: NotfoundComponent },
       { path: '**', component: NotfoundComponent }
     ]
-  },
-  {
-    path: '**',
-    redirectTo: '/profile',
-    pathMatch: 'full'
   }
 ];
 

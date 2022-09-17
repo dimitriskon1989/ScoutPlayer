@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'user-page', loadChildren: () => import('./user-page/user-profile.module').then(m => m.UserProfileModule)},
-  {path: '**', component: NotfoundComponent}
+  { path: '**', component: NotfoundComponent }
 
 ];
 

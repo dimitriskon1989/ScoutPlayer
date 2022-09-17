@@ -1,5 +1,6 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MaterialModule } from "src/app/material.module";
 import  {PrimengModule } from "src/app/primeng.module";
 
@@ -11,6 +12,7 @@ import { ProfileComponent } from 'src/app/user-page/components/profile/profile.c
 import { MessagesComponent } from 'src/app/user-page/components/messages/messages.component';
 import { AccountComponent } from 'src/app/user-page/components/account/account.component';
 import { SettingsComponent } from 'src/app/user-page/components/settings/settings.component';
+import { UserPageComponent } from 'src/app/user-page/components/user-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { SettingsComponent } from 'src/app/user-page/components/settings/setting
     MessagesComponent,
     AccountComponent,
     SettingsComponent,
+    UserPageComponent
   ],
   imports: [
     CommonModule,
