@@ -9,10 +9,18 @@ import { AccountComponent } from 'src/app/user-page/components/account/account.c
 import { SettingsComponent } from 'src/app/user-page/components/settings/settings.component';
 import { NotfoundComponent } from "../shared/components/notfound/notfound.component";
 
+import {
+  canActivate,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+
 const routes: Routes = [
   {
     path: '',
-    component: UserPageComponent,
+    component: UserPageComponent, ...canActivate(redirectUnauthorizedToLogin),
     children: [
       { path: 'profile', component: ProfileComponent },
       { path: 'messages', component: NotfoundComponent },

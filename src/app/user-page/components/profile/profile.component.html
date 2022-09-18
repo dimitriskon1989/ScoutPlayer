@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="container-fluid m-0">
+  <div class="row m-4 p-4 shadow rounded">
+    <div class="card" style="max-width: 600px" class="border-0">
+      <div class="row m-0">
+        <div class="col-sm-5">
+          <img
+            src="../../../../assets/photo/Players/Giannis-Loukinas.png"
+            class="card-img-top h-100 shadow"
+            alt="..."
+          />
+        </div>
+        <div class="col-sm-7 py-2">
+          <div class="card-body">
+            <h1 class="name" *ngIf="authService.currentUser">
+              {{ authService.currentUserEmail }}
+            </h1>
+            <p>
+              Alice is a freelance web designer and developer based in London.
+              She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-4 p-2 shadow rounded">
+    <div class="col-12">
+      <h3 class="p-0 m-0">Media</h3>
+    </div>
+  </div>
+</div>

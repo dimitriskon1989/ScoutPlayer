@@ -1,37 +1,76 @@
 <mat-sidenav-container autosize>
-  <mat-sidenav>
-    <mat-nav-list>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="chevron-button">chevron_right</mat-icon>
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <div class="d-flex justify-content-start align-items-center py-2 px-4">
+      <button (click)="isExpanded = !isExpanded" class="border-0 bg-white">
+        <mat-icon
+          mat-list-icon
+          class="chevron-button"
+          [ngClass]="{ rotated: isExpanded }"
+          >sort</mat-icon
+        >
+      </button>
+    </div>
+    <mat-nav-list class="p-0">
+      <mat-list-item
+        [routerLink]="'profile'"
+        [routerLinkActive]="['is-active']"
+      >
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Προφίλ</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'profile'">
-        <mat-icon mat-list-icon>account_circle</mat-icon>
-        <span class="menu-item">Profile</span>
-      </mat-list-item>
-
-      <mat-list-item [routerLink]="'info'">
+      <mat-list-item [routerLink]="'info'" [routerLinkActive]="['is-active']">
         <mat-icon mat-list-icon>message</mat-icon>
-        <span class="menu-item">Messages</span>
+        <span *ngIf="isExpanded" class="menu-item">Μηνύματα</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'account'">
-        <mat-icon mat-list-icon>supervisor_account</mat-icon>
-        <span class="menu-item">Account</span>
+      <mat-list-item
+        [routerLink]="'account'"
+        [routerLinkActive]="['is-active']"
+      >
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Λογαριασμός</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'settings'">
+      <mat-list-item
+        [routerLink]="'settings'"
+        [routerLinkActive]="['is-active']"
+      >
         <mat-icon mat-list-icon>settings</mat-icon>
-        <span class="menu-item">Settings</span>
+        <span *ngIf="isExpanded" class="menu-item">Ρυθμίσεις</span>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
   <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
   <mat-sidenav-content>
-    <mat-toolbar>
-      <h4>Hello everyone</h4>
+    <mat-toolbar class="justify-content-between">
+      <a class="navbar-brand">
+        <img
+          src="../../../assets/photo/ScoutPlayer-Logo(1).png"
+          width="100px"
+          alt=""
+        />
+      </a>
+      <div>
+        <button
+          mat-button
+          routerLink="/login"
+          style="background-color: #2bbcaf; color: white"
+          class="mx-1"
+        ></button>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon class="mx-1">account_circle</mat-icon>User
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>Αποσύνδεση
+          </button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
-    <!-- <router-outlet></router-outlet> -->
+
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

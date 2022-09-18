@@ -7,6 +7,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
     InputTextModule,
     ButtonModule,
     ToggleButtonModule,
+    CardModule,
   ]
 })
 export class PrimengModule { }

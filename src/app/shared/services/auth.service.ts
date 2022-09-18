@@ -8,8 +8,13 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
+  authState: any = null;
+
   constructor(public afAuth: AngularFireAuth,
               public router: Router) {
+                this.afAuth.authState.subscribe((auth => {
+                  this.authState = auth;
+                }))
   }
 
   // Register with email/password
@@ -25,5 +30,14 @@ export class AuthService {
   signOut() {
     return this.afAuth.signOut();
   }
+
+  get currentUserEmail(): string {
+    return this.authState['email'];
+  }
+
+  get currentUser(): any {
+    return (this.authState !== null) ? this.authState : null;
+  }
+
 
 }

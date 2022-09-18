@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Giannis Loukinas",
+    "email": "giannis@gmail.com"
+  },
+  {
+    "id": 2,
+    "name": "Andreas Giondis",
+    "email": "andreas@gmail.com"
+  },
+  {
+    "id": 3,
+    "name": "Giorgos Manalis",
+    "email": "giorgos@gmail.com"
+  }
+]

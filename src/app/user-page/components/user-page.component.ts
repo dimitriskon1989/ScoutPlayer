@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from '../../shared/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -7,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPageComponent implements OnInit {
 
-  constructor() { }
+  isExpanded: boolean = false;
+
+  constructor(private authService: AuthService,
+              private router: Router,) { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    this.authService.signOut();
+    this.router.navigate(['login']);
+  }
 
 }
